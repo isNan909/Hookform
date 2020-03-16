@@ -16,3 +16,7 @@ h6{
 .basicValidation button{
   margin-top: 20px;
 }
+
+.error{
+  color: red
+}
