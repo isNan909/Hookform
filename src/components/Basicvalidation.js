@@ -14,13 +14,13 @@ export const Basicvalidation = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">First Name</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" name="firstname" ref={register({ required: true })} placeholder="Your first name" />
-                        {errors.firstname && <span className="error">This field is required</span>}
+                        <input type="text" className="form-control" id="exampleInputEmail1" name="firstname" ref={register({ required: true, maxLength: 6 })} placeholder="Your first name" />
+                        {errors.firstname && <span className="error">This field is required with six max</span>}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Last Name</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" name="lastname" ref={register({ required: true })} placeholder="Your last name" />
-                        {errors.lastname && <span className="error">This field is required</span>}
+                        <label htmlFor="exampleInputEmail1">Last Score</label>
+                        <input type="number" className="form-control" id="exampleInputEmail1" name="age" ref={register({ min: 18, max: 99 })} placeholder="Last score" />
+                        {errors.age && <span className="error">This field must be minimum of 5 characters and</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email</label>
