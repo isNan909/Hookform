@@ -7,6 +7,16 @@ export const Basicvalidation = () => {
         console.log('loading ...')
         setTimeout(function () { console.clear(); }, 1500);
     }
+    const timeLag = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const  selectedDesignation= async (value) => {
+            await timeLag(2000);
+            if(value > 5){
+                return true;
+            }
+            else{
+                return false;
+            }
+    };
     return (
         <Fragment>
             <div className="basicValidation">
@@ -24,20 +34,20 @@ export const Basicvalidation = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" name="email"
-                            ref={register({ require: true, pattern: /\S+@\S+\.\S+/ })} placeholder="Your email" />
+                        <input className="form-control" id="exampleInputEmail1" name="email"
+                            ref={register({ required: true, pattern: /\S+@\S+\.\S+/ })} placeholder="Your email" />
                         {errors.email && <span className="error">This field must filled with email address</span>}
                     </div>
                     <div>
-                        <label htmlFor="validationTooltip04">Designation</label>
-                        <select className="Title custom-select" name="designation" ref={register({ required: true })}>
-                            <option value="">Choose one</option>
-                            <option value="Mr">Designer</option>
-                            <option value="Mrs">Frontend Developer</option>
-                            <option value="Miss">Backend Developer</option>
-                            <option value="Dr">Full Stack</option>
+                        <label htmlFor="validationTooltip04">Years of Experience</label>
+                        <select className="Title custom-select" name="experience" ref={register({ required: true, validate: selectedDesignation })}>
+                            <option value="">Choose years</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
                         </select>
-                        {errors.designation && <span className="error">This field is required</span>}
+                        {errors.experience && <span className="error">This experience is not enough</span>}
                     </div>
                     <br />
                     <div><b>Is Active</b></div>
