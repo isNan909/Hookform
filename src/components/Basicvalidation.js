@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 export const Basicvalidation = () => {
     const { handleSubmit, register, errors } = useForm();
-    const onSubmit = values => {
+    const onSubmit= () => {
         console.log('loading ...')
         setTimeout(function () { console.clear(); }, 1500);
     }
