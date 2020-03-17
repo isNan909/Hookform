@@ -13,12 +13,12 @@ export const Basicvalidation = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Password</label>
-                        <input type="password" autoComplete="new password" className="form-control" id="exampleInputEmail1" name="pwd" ref={register({ required: 'Password is required' })} placeholder="Your password" />
+                        <input type="password" autoComplete="password" className="form-control" id="exampleInputEmail1" name="pwd" ref={register({ required: 'Password is required' })} placeholder="Your password" />
                         {errors.pwd && <span className="error">password is required</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Retype Password</label>
-                        <input type="password" autoComplete="newer password" name="pwdConfirmation"  placeholder="Repeat password" className="form-control" ref={register({ required: 'Confirm password!',
+                        <input type="password" autoComplete="password" name="pwdConfirmation"  placeholder="Repeat password" className="form-control" ref={register({ required: 'Confirm password!',
                         validate: {
                             matchesPreviousPassword: (val) => {
                             const { pwd } = getValues();
