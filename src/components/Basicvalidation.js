@@ -10,7 +10,7 @@ export const Basicvalidation = () => {
     return (
         <Fragment>
             <div className="basicValidation">
-                <h4 className="font-weight-normal">Basic Validation</h4>
+                <h4 className="font-weight-normal">Custom Validation</h4>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">First Name</label>
@@ -18,15 +18,15 @@ export const Basicvalidation = () => {
                         {errors.firstname && <span className="error">This field is required with six max</span>}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Last Score</label>
-                        <input type="number" className="form-control" id="exampleInputEmail1" name="age" ref={register({ min: 18, max: 99 })} placeholder="Last score" />
-                        {errors.age && <span className="error">This field must be minimum of 5 characters and</span>}
+                        <label htmlFor="exampleInputEmail1">Age</label>
+                        <input type="number" className="form-control" id="exampleInputEmail1" name="age" ref={register({ required: true, min: 18, max: 99 })} placeholder="Last score" />
+                        {errors.age && <span className="error">This field must be less than 99 and not less than 18</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email</label>
                         <input type="text" className="form-control" id="exampleInputEmail1" name="email"
-                            ref={register({ required: true })} placeholder="Your email" />
-                        {errors.email && <span className="error">This field is required</span>}
+                            ref={register({ require: true, pattern: /\S+@\S+\.\S+/ })} placeholder="Your email" />
+                        {errors.email && <span className="error">This field must filled with email address</span>}
                     </div>
                     <div>
                         <label htmlFor="validationTooltip04">Designation</label>
